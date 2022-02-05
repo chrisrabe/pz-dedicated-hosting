@@ -7,7 +7,7 @@ SETUP_DIR=${USER_HOME}/server-setup
 STEAM_APP_ID=380870
 AWS_DIR=${SCRIPTS_DIR}/aws
 ASSETS_DIR=${SCRIPTS_DIR}/assets
-DISCORD_WEBHOOK=''
+export DISCORD_WEBHOOK=''
 
 # Install Docker Engine
 sudo snap install docker

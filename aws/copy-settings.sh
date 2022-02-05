@@ -13,5 +13,11 @@ FILES=(
 
 for f in "${FILES[@]}"
 do
+    # Send server startup message to Discord
+    if [ ! -z "${DISCORD_WEBHOOK}" ];
+    then
+        SERVER_IP=$(curl http://checkip.amazonaws.com)
+        curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} has configured ${f}!\"}" "${DISCORD_WEBHOOK}"
+    fi
     cp "${SERVER_SPECS}/${f}" "${ZOMBOID_DIR}/${f}"
 done
