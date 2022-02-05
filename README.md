@@ -7,6 +7,13 @@
 ## What is this?
 This repository contains code for setting up your Project Zomboid dedicated server through cloud services (like AWS) effortlessly. 
 
+## Getting started
+1. When setting an EC2 instance, copy the items inside `user-data.sh` when configuring your server
+2. Once the boot-up process is finished (all files inside server-setup folder are there), run the `run-server.sh` script
+3. Kill your server
+4. Run `copy-settings.sh` (to copy over custom server specs in the specs folder)
+5. Run `run-server.sh` again to restart the server
+
 ## Motivation
 Project Zomboid comes with its own hosting feature built into the client. However, it relies on one player to become the "host". 
 
