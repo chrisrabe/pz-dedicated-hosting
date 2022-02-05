@@ -6,9 +6,9 @@ SCRIPTS_DIR=${USER_HOME}/pz-setup
 SERVER_SPECS=${SCRIPTS_DIR}/specs
 
 FILES=(
-    "servertest.ini",
-    "servertest_SandboxVars.lua",
-    "servertest_spawnregions.lue"
+    "servertest.ini"
+    "servertest_SandboxVars.lua"
+    "servertest_spawnregions.lua"
 )
 
 for f in "${FILES[@]}"
