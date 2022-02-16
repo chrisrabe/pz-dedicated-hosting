@@ -13,7 +13,12 @@ then
     curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} is starting. Please wait a few minutes before joining!\"}" "${DISCORD_WEBHOOK}"
 fi
 
-${SETUP_DIR}/start-server.sh < ${ASSETS}/serv-creds.txt
+if [ -d "${USER_HOME}/Zomboid" ];
+then
+    ${SETUP_DIR}/start-server.sh
+else
+    ${SETUP_DIR}/start-server.sh < ${ASSETS}/serv-creds.txt
+fi
 
 # Send server exit to Discord
 if [ ! -z "${DISCORD_WEBHOOK}" ];
