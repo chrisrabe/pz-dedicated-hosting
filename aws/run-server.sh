@@ -5,6 +5,7 @@ SCRIPTS_DIR=${USER_HOME}/pz-setup
 ASSETS=${SCRIPTS_DIR}/assets
 SETUP_DIR=${USER_HOME}/server-setup
 SERVER_INPUT_PIPE=/tmp/srv-input
+ADMIN_PASSWORD='password'
 
 rm -f ${SERVER_INPUT_PIPE}
 mkfifo ${SERVER_INPUT_PIPE}
@@ -21,15 +22,19 @@ fi
 
 ${SETUP_DIR}/start-server.sh < ${SERVER_INPUT_PIPE} &
 
-sleep 15s
-echo "password" > ${SERVER_INPUT_PIPE}
-sleep 1s
-echo "password" > ${SERVER_INPUT_PIPE}
+# Set admin password for initial setup
+if [ ! -d "${USER_HOME}/Zomboid" ];
+then
+    sleep 15s
+    echo "${ADMIN_PASSWORD}" > ${SERVER_INPUT_PIPE}
+    sleep 1s
+    echo "${ADMIN_PASSWORD}" > ${SERVER_INPUT_PIPE}
+fi
 
 # Send server exit to Discord
 if [ ! -z "${DISCORD_WEBHOOK}" ];
 then
-    sleep 30s
+    sleep 40s
     SERVER_IP=$(curl http://checkip.amazonaws.com)
     curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} is closed.\"}" "${DISCORD_WEBHOOK}"
 fi
