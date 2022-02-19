@@ -29,8 +29,6 @@ then
     echo "${ADMIN_PASSWORD}" > ${SERVER_INPUT_PIPE}
     sleep 1s
     echo "${ADMIN_PASSWORD}" > ${SERVER_INPUT_PIPE}
-    sleep 1s
-    cat > ${SERVER_INPUT_PIPE}
 fi
 
 # Send server exit to Discord
@@ -39,4 +37,9 @@ then
     sleep 45s
     SERVER_IP=$(curl http://checkip.amazonaws.com)
     curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} is ready.\"}" "${DISCORD_WEBHOOK}"
+    sleep 1s
+    cat > ${SERVER_INPUT_PIPE}
+else
+    sleep 1s
+    cat > ${SERVER_INPUT_PIPE}
 fi
