@@ -20,7 +20,7 @@ then
     curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} is starting. Please wait a few minutes before joining!\"}" "${DISCORD_WEBHOOK}"
 fi
 
-${SETUP_DIR}/start-server.sh < ${SERVER_INPUT_PIPE} &
+${SETUP_DIR}/start-server.sh 2>&1 < ${SERVER_INPUT_PIPE} &
 
 # Set admin password for initial setup
 if [ ! -d "${USER_HOME}/Zomboid" ];
@@ -36,7 +36,7 @@ fi
 # Send server exit to Discord
 if [ ! -z "${DISCORD_WEBHOOK}" ];
 then
-    sleep 1m
+    sleep 50s
     SERVER_IP=$(curl http://checkip.amazonaws.com)
     curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} is ready.\"}" "${DISCORD_WEBHOOK}"
 fi
