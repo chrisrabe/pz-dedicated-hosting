@@ -36,5 +36,5 @@ if [ ! -z "${DISCORD_WEBHOOK}" ];
 then
     sleep 40s
     SERVER_IP=$(curl http://checkip.amazonaws.com)
-    curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} is closed.\"}" "${DISCORD_WEBHOOK}"
+    curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} is ready.\"}" "${DISCORD_WEBHOOK}"
 fi
