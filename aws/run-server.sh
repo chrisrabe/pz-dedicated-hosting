@@ -36,7 +36,7 @@ fi
 # Send server exit to Discord
 if [ ! -z "${DISCORD_WEBHOOK}" ];
 then
-    sleep 40s
+    sleep 1m
     SERVER_IP=$(curl http://checkip.amazonaws.com)
     curl -H "Content-Type: application/json" -d "{\"content\": \"Server at ${SERVER_IP} is ready.\"}" "${DISCORD_WEBHOOK}"
 fi
