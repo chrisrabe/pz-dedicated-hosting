@@ -10,9 +10,6 @@ ADMIN_PASSWORD='password'
 rm -f ${SERVER_INPUT_PIPE}
 mkfifo ${SERVER_INPUT_PIPE}
 
-cat > ${SERVER_INPUT_PIPE} &
-echo $! > ${SERVER_INPUT_PIPE}-pid
-
 # Send server startup message to Discord
 if [ ! -z "${DISCORD_WEBHOOK}" ];
 then
@@ -22,6 +19,10 @@ fi
 
 ${SETUP_DIR}/start-server.sh 2>&1 < ${SERVER_INPUT_PIPE} &
 
+sleep 2s
+cat > ${SERVER_INPUT_PIPE} &
+echo $! > ${SERVER_INPUT_PIPE}-pid
+
 # Set admin password for initial setup
 if [ ! -d "${USER_HOME}/Zomboid" ];
 then
@@ -30,7 +31,8 @@ then
     sleep 1s
     echo "${ADMIN_PASSWORD}" > ${SERVER_INPUT_PIPE}
     sleep 1s
-    cat > ${SERVER_INPUT_PIPE}
+    cat > ${SERVER_INPUT_PIPE} &
+    echo $! > ${SERVER_INPUT_PIPE}-pid
 fi
 
 # Send server exit to Discord
