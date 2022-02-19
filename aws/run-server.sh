@@ -25,9 +25,9 @@ ${SETUP_DIR}/start-server.sh < ${SERVER_INPUT_PIPE} &
 # Set admin password for initial setup
 if [ ! -d "${USER_HOME}/Zomboid" ];
 then
-    sleep 2s
+    sleep 3s
     echo "${ADMIN_PASSWORD}" > ${SERVER_INPUT_PIPE}
-    sleep 1s
+    sleep 2s
     echo "${ADMIN_PASSWORD}" > ${SERVER_INPUT_PIPE}
 fi
 
