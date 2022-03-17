@@ -15,17 +15,15 @@ This repository contains code for setting up your Project Zomboid dedicated serv
 5. Run `run-server.sh` again to restart the server
 
 ## Motivation
-Project Zomboid comes with its own hosting feature built into the client. However, it relies on one player to become the "host". 
-
-I always found this frustrating when playing with my girlfriend. If I wanted to work on something whilst she's away or busy, I couldn't do that because she has to be there to start the server. To resolve this, PZ provides a dedicated server solution.
+Project Zomboid comes with its own hosting feature built into the client. However, it relies on one player to become the "host". This would mean that the "host" player is the only one with the power to start and stop the server. If they're away, then nobody else can play. I always found this frustrating. My girlfriend holds the files for our server. I couldn't run the server when she isn't around. This is why PZ offers a dedicated server as a solution to this problem.
 
 There are *tonnes* of dedicated hosting solutions out there; however, they can be very costly; especially when you don't even play PZ that much.
 
-Setting up a server requires a lot of technical expertise and can be daunting to those without experience in cloud providers or other hosting services.
+Setting up a server requires a lot of technical expertise and can be daunting to those without experience with cloud providers or other hosting services.
 
 I was inspired by the effortless experience that Minecraft players have for their servers. The process for players is to simply register to a website, give their servers a name and configuration and press a big "start" button to create their server. I want that same experience for PZ players. 
 
-In terms of how, I'm not sure. But that's what this is for. Feel free to join me in this journey.
+I'm not completely sure how i'll achieve this, but that's what this is for. Feel free to join me in this journey.
 
 ## Roadmap (so far)
 
