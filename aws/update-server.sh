@@ -12,6 +12,8 @@ fi
 
 docker run -i -v ${SETUP_DIR}:/data steamcmd/steamcmd:latest +login anonymous +force_install_dir /data +app_update ${STEAM_APP_ID} validate +quit
 
+docker rm $(docker ps -aq)
+
 # Send server exit to Discord
 if [ ! -z "${DISCORD_WEBHOOK}" ];
 then
